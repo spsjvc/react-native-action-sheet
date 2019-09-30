@@ -51,8 +51,18 @@ export default class ActionGroup extends React.Component<Props> {
     return (
       <View>
         <View style={[styles.titleContainer, { paddingBottom: showSeparators ? 24 : 16 }]}>
-          {!!title && <Text style={[styles.title, titleTextStyle]}>{title}</Text>}
-          {!!message && <Text style={[styles.message, messageTextStyle]}>{message}</Text>}
+          {!!title &&
+            (typeof title === 'string' ? (
+              <Text style={[styles.title, titleTextStyle]}>{title}</Text>
+            ) : (
+              title
+            ))}
+          {!!message &&
+            (typeof message === 'string' ? (
+              <Text style={[styles.message, messageTextStyle]}>{message}</Text>
+            ) : (
+              message
+            ))}
         </View>
         {!!showSeparators && this._renderRowSeparator('title')}
       </View>
