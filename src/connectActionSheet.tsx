@@ -8,9 +8,13 @@ export default function connectActionSheet<OwnProps = any>(
   const ConnectedActionSheet = (props: OwnProps) => {
     return (
       <Consumer>
-        {({ showActionSheetWithOptions }) => {
+        {({ showActionSheetWithOptions, hideActionSheet }) => {
           return (
-            <WrappedComponent {...props} showActionSheetWithOptions={showActionSheetWithOptions} />
+            <WrappedComponent
+              {...props}
+              showActionSheetWithOptions={showActionSheetWithOptions}
+              hideActionSheet={hideActionSheet}
+            />
           );
         }}
       </Consumer>

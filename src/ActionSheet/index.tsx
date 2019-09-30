@@ -182,6 +182,10 @@ export default class ActionSheet extends React.Component<Props, State> {
     BackHandler.addEventListener('actionSheetHardwareBackPress', this._selectCancelButton);
   };
 
+  hideActionSheet = () => {
+    this._selectCancelButton();
+  }
+
   _selectCancelButton = () => {
     const { options } = this.state;
 

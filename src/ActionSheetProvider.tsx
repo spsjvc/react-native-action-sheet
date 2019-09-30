@@ -21,6 +21,9 @@ export default class ActionSheetProvider extends React.Component<Props> {
         this._actionSheetRef.current !== null &&
           this._actionSheetRef.current.showActionSheetWithOptions(options, callback);
       },
+      hideActionSheet: () => {
+        this._actionSheetRef.current !== null && this._actionSheetRef.current.hideActionSheet();
+      },
     };
   };
 
