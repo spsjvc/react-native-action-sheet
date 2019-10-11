@@ -27,7 +27,7 @@ export default class ActionGroup extends React.Component<Props> {
     const { containerStyle } = this.props;
 
     return (
-      <View style={{...styles.groupContainer, ...containerStyle}}>
+      <View style={{ ...styles.groupContainer, ...containerStyle }}>
         {this._renderTitleContent()}
         <ScrollView>{this._renderOptionViews()}</ScrollView>
       </View>
@@ -44,7 +44,14 @@ export default class ActionGroup extends React.Component<Props> {
   };
 
   _renderTitleContent = () => {
-    const { title, titleTextStyle, titleContainerStyle, message, messageTextStyle, showSeparators } = this.props;
+    const {
+      title,
+      titleTextStyle,
+      titleContainerStyle,
+      message,
+      messageTextStyle,
+      showSeparators,
+    } = this.props;
 
     if (!title && !message) {
       return null;
@@ -52,7 +59,11 @@ export default class ActionGroup extends React.Component<Props> {
 
     return (
       <View>
-        <View style={[ {...styles.titleContainer, ...titleContainerStyle}, { paddingBottom: showSeparators ? 24 : 16 }]}>
+        <View
+          style={[
+            { ...styles.titleContainer, ...titleContainerStyle },
+            { paddingBottom: showSeparators ? 24 : 16 },
+          ]}>
           {!!title &&
             (typeof title === 'string' ? (
               <Text style={[styles.title, titleTextStyle]}>{title}</Text>
@@ -79,7 +90,10 @@ export default class ActionGroup extends React.Component<Props> {
     }
 
     if (typeof iconSource === 'number') {
-      const iconStyle = [styles.icon, { tintColor: tintIcons ? color : undefined }];
+      const iconStyle = [
+        { ...styles.icon, ...iconsStyle },
+        { tintColor: tintIcons ? color : undefined },
+      ];
       return <Image fadeDuration={0} source={iconSource} resizeMode="contain" style={iconStyle} />;
     } else {
       return <View style={{ ...styles.icon, ...iconsStyle }}>{iconSource}</View>;
