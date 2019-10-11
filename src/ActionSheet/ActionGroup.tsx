@@ -72,7 +72,8 @@ export default class ActionGroup extends React.Component<Props> {
   };
 
   _renderIconElement = (iconSource: React.ReactNode | null, color: string) => {
-    const { tintIcons } = this.props;
+    const { iconsStyle, tintIcons } = this.props;
+
     if (!iconSource) {
       return null;
     }
@@ -81,7 +82,7 @@ export default class ActionGroup extends React.Component<Props> {
       const iconStyle = [styles.icon, { tintColor: tintIcons ? color : undefined }];
       return <Image fadeDuration={0} source={iconSource} resizeMode="contain" style={iconStyle} />;
     } else {
-      return <View style={styles.icon}>{iconSource}</View>;
+      return <View style={{ ...styles.icon, ...iconsStyle }}>{iconSource}</View>;
     }
   };
 

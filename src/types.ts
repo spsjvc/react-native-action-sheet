@@ -14,6 +14,7 @@ export interface ActionSheetIOSOptions {
 // for Android or Web
 export interface ActionSheetOptions extends ActionSheetIOSOptions {
   icons?: React.ReactNode[];
+  iconsStyle?: object;
   tintIcons?: boolean;
   textStyle?: TextStyle;
   titleTextStyle?: TextStyle;

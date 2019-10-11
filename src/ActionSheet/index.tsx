@@ -84,6 +84,7 @@ export default class ActionSheet extends React.Component<Props, State> {
     const {
       options: optionsArray,
       icons,
+      iconsStyle,
       tintIcons,
       destructiveButtonIndex,
       textStyle,
@@ -119,6 +120,7 @@ export default class ActionSheet extends React.Component<Props, State> {
             <ActionGroup
               options={optionsArray}
               icons={icons}
+              iconsStyle={iconsStyle}
               tintIcons={tintIcons === undefined ? true : tintIcons}
               destructiveButtonIndex={destructiveButtonIndex}
               onSelect={this._onSelect}
