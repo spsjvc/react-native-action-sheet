@@ -17,7 +17,9 @@ export interface ActionSheetOptions extends ActionSheetIOSOptions {
   tintIcons?: boolean;
   textStyle?: TextStyle;
   titleTextStyle?: TextStyle;
+  titleContainerStyle?: object;
   messageTextStyle?: TextStyle;
   showSeparators?: boolean;
   separatorStyle?: ViewStyle;
+  containerStyle?: object;
 }

@@ -24,8 +24,10 @@ export default class ActionGroup extends React.Component<Props> {
   };
 
   render() {
+    const { containerStyle } = this.props;
+
     return (
-      <View style={styles.groupContainer}>
+      <View style={{...styles.groupContainer, ...containerStyle}}>
         {this._renderTitleContent()}
         <ScrollView>{this._renderOptionViews()}</ScrollView>
       </View>
@@ -42,7 +44,7 @@ export default class ActionGroup extends React.Component<Props> {
   };
 
   _renderTitleContent = () => {
-    const { title, titleTextStyle, message, messageTextStyle, showSeparators } = this.props;
+    const { title, titleTextStyle, titleContainerStyle, message, messageTextStyle, showSeparators } = this.props;
 
     if (!title && !message) {
       return null;
@@ -50,7 +52,7 @@ export default class ActionGroup extends React.Component<Props> {
 
     return (
       <View>
-        <View style={[styles.titleContainer, { paddingBottom: showSeparators ? 24 : 16 }]}>
+        <View style={[ {...styles.titleContainer, ...titleContainerStyle}, { paddingBottom: showSeparators ? 24 : 16 }]}>
           {!!title &&
             (typeof title === 'string' ? (
               <Text style={[styles.title, titleTextStyle]}>{title}</Text>

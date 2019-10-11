@@ -90,10 +90,12 @@ export default class ActionSheet extends React.Component<Props, State> {
       tintColor,
       title,
       titleTextStyle,
+      titleContainerStyle,
       message,
       messageTextStyle,
       showSeparators,
       separatorStyle,
+      containerStyle
     } = options;
     return (
       <TouchableWithoutFeedback onPress={this._selectCancelButton}>
@@ -126,11 +128,13 @@ export default class ActionSheet extends React.Component<Props, State> {
               tintColor={tintColor}
               title={title || undefined}
               titleTextStyle={titleTextStyle}
+              titleContainerStyle={titleContainerStyle}
               message={message || undefined}
               messageTextStyle={messageTextStyle}
               showSeparators={showSeparators}
               separatorStyle={separatorStyle}
-            />
+              containerStyle={containerStyle}
+              />
           </View>
         </Animated.View>
       </TouchableWithoutFeedback>
