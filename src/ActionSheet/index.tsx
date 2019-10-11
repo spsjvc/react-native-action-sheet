@@ -96,7 +96,7 @@ export default class ActionSheet extends React.Component<Props, State> {
       messageTextStyle,
       showSeparators,
       separatorStyle,
-      containerStyle
+      containerStyle,
     } = options;
     return (
       <TouchableWithoutFeedback onPress={this._selectCancelButton}>
@@ -136,7 +136,7 @@ export default class ActionSheet extends React.Component<Props, State> {
               showSeparators={showSeparators}
               separatorStyle={separatorStyle}
               containerStyle={containerStyle}
-              />
+            />
           </View>
         </Animated.View>
       </TouchableWithoutFeedback>
@@ -190,22 +190,10 @@ export default class ActionSheet extends React.Component<Props, State> {
 
   hideActionSheet = () => {
     this._selectCancelButton();
-  }
+  };
 
   _selectCancelButton = () => {
-    const { options } = this.state;
-
-    if (!options) {
-      return false;
-    }
-
-    if (typeof options.cancelButtonIndex === 'undefined') {
-      return;
-    } else if (typeof options.cancelButtonIndex === 'number') {
-      return this._onSelect(options.cancelButtonIndex);
-    } else {
-      return this._animateOut();
-    }
+    return this._animateOut();
   };
 
   _onSelect = (index: number): boolean => {

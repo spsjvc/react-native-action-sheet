@@ -7,7 +7,6 @@ export interface ActionSheetIOSOptions {
   title?: string;
   message?: string;
   tintColor?: string;
-  cancelButtonIndex?: number;
   destructiveButtonIndex?: number;
 }
 
